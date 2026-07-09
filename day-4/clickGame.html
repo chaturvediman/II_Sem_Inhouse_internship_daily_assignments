@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FRUIT SMASH</title>
+    <style>
+        body{
+            margin:0;
+            font-family:Arial;
+            text-align:center;
+            background:#dfeffd;
+        }
+
+        h1{
+            margin-top:20px;
+        }
+
+        #gameArea{
+            width:600px;
+            height:400px;
+            margin:20px auto;
+            border:2px solid black;
+            position:relative;
+            background:rgb(82, 221, 22);
+            overflow:hidden;
+        }
+
+        .fruit{
+            position:absolute;
+            width:80px;
+            height:80px;
+            font-size:40px;
+            cursor:pointer;
+        }
+
+        #info{
+            font-size:20px;
+        }
+
+        button{
+            padding:10px 20px;
+            font-size:16px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1> Fruit Click Game </h1>
+
+<div id="info">
+     Time: <span id="time">20</span> sec | 
+    Score: <span id="score">0</span>
+</div>
+
+<button onclick="startGame()">Start Game</button>
+
+<div id="gameArea"></div>
+
+<h2 id="result"></h2>
+
+<script>
+    let score = 0;
+    let timeLeft = 15;
+    let gameInterval;
+    let fruitInterval;
+
+    const gameArea = document.getElementById("gameArea");
+
+    function startGame(){
+        score = 0;
+        timeLeft = 15;
+        document.getElementById("score").innerText = score;
+        document.getElementById("time").innerText = timeLeft;
+        document.getElementById("result").innerText = "";
+        gameArea.innerHTML = "";
+
+        // Timer
+        gameInterval = setInterval(()=>{
+            timeLeft--;
+            document.getElementById("time").innerText = timeLeft;
+
+            if(timeLeft <= 0){
+                endGame();
+            }
+        },1000);
+
+        // Fruit generation
+        fruitInterval = setInterval(createFruit,800);
+    }
+
+    function createFruit(){
+        const fruit = document.createElement("div");
+        fruit.classList.add("fruit");
+
+        // Random fruit
+        const fruits = ["🍎","🍌"];
+        fruit.innerText = fruits[Math.floor(Math.random()*2)];
+
+        // Random position
+        const x = Math.random() * 540;
+        const y = Math.random() * 340;
+
+        fruit.style.left = x + "px";
+        fruit.style.top = y + "px";
+
+        // Click event
+        fruit.onclick = function(){
+            score++;
+            document.getElementById("score").innerText = score;
+            fruit.remove();
+        };
+
+        gameArea.appendChild(fruit);
+
+        // Auto remove after 1.5 sec
+        setTimeout(()=>{
+            fruit.remove();
+        },1500);
+    }
+
+    function endGame(){
+        clearInterval(gameInterval);
+        clearInterval(fruitInterval);
+
+        document.getElementById("result").innerText = 
+            "🏁 Game Over! You clicked " + score + " fruits!";
+    }
+</script>
+
+</body>
+</html>
