@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Landing Page</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    color:#000;
+    transition:0.5s;
+}
+
+.dark{
+    background:#222;
+    color:white;
+}
+
+nav{
+    background:#007BFF;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
+
+.hero{
+    text-align:center;
+    padding:60px;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero p{
+    margin:20px 0;
+}
+
+.hero button{
+    padding:10px 20px;
+    background:#007BFF;
+    color:white;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.container{
+    width:80%;
+    margin:auto;
+    margin-top:30px;
+}
+
+.box{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px lightgray;
+}
+
+.dark .box{
+    background:#333;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+}
+
+button{
+    padding:10px 15px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+    <h2>DAY 4 TASK</h2>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h1>MY LANDING PAGE</h1>
+    <p>Welcome to my landing page</p>
+
+    <button onclick="toggleMode()">Dark Mode</button>
+</div>
+
+<div class="container">
+
+<div class="box">
+<h2>Click Counter</h2>
+
+<h3 id="count">0</h3>
+
+<button onclick="increase()">Click Me</button>
+
+<button onclick="resetCounter()">Reset</button>
+
+</div>
+
+<div class="box">
+
+<h2>Contact Form</h2>
+
+<form onsubmit="return validateForm()">
+
+<input type="text" id="name" placeholder="Enter Name">
+
+<p id="nameError" class="error"></p>
+
+<input type="text" id="email" placeholder="Enter Email">
+
+<p id="emailError" class="error"></p>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+let count = 0;
+
+function increase(){
+    count++;
+    document.getElementById("count").innerHTML=count;
+}
+
+function resetCounter(){
+    count=0;
+    document.getElementById("count").innerHTML=count;
+}
+
+function toggleMode(){
+    document.body.classList.toggle("dark");
+}
+
+function validateForm(){
+
+let name=document.getElementById("name").value;
+
+let email=document.getElementById("email").value;
+
+document.getElementById("nameError").innerHTML="";
+
+document.getElementById("emailError").innerHTML="";
+
+let valid=true;
+
+if(name==""){
+document.getElementById("nameError").innerHTML="Name cannot be empty";
+valid=false;
+}
+
+if(email.indexOf("@")==-1){
+document.getElementById("emailError").innerHTML="Enter a valid email";
+valid=false;
+}
+
+if(valid){
+alert("Form Submitted Successfully");
+}
+
+return valid;
+
+}
+
+</script>
+
+</body>
+</html>
