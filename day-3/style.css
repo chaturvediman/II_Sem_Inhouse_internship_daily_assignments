@@ -1,0 +1,165 @@
+/* 
+  DEBUG CHALLENGE:
+  This stylesheet intentionally contains visual and responsive issues.
+  Students should observe the page first, then inspect and fix.
+*/
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    color: #20242a;
+}
+
+/* BUG: Navbar content is not vertically aligned and spacing feels wrong */
+.custom-navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.enroll-btn {
+    margin-right: -25px;
+}
+
+/* BUG: Hero has too much height and columns do not stack properly */
+.hero-section {
+    padding: 50px 0;
+    background: white;
+}
+
+.hero-row {
+    display: flex;
+    align-items: top;
+}
+
+.hero-content {
+    padding-top: 50px;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 20px;
+    max-width: 520px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 6px;
+}
+
+/* BUG: Fixed image size breaks responsiveness */
+.hero-img {
+    width: 760px;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 0px;
+}
+
+/* BUG: inconsistent section spacing */
+.feature-section {
+    padding-top: 35px;
+    padding-bottom: 10px;
+}
+
+.section-title {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+/* BUG: fixed widths and inconsistent heights create card issues */
+.feature-card {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 18px;
+    width: 410px;
+    min-height: 360px;
+    margin-bottom: 20px;
+}
+
+.feature-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.card-css {
+    margin-top: 35px;
+}
+
+.card-bootstrap {
+    height: 430px;
+}
+
+/* BUG: trainer section layout is not responsive */
+.trainer-section {
+    background: #111827;
+    color: white;
+    padding: 45px 0;
+}
+
+.trainer-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.trainer-card {
+    background: #1f2937;
+    padding: 20px;
+    width: 560px;
+}
+
+.trainer-card img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    float: left;
+    margin-right: 20px;
+}
+
+/* BUG: contact form layout breaks on narrow screens */
+.contact-section {
+    padding: 50px 0;
+}
+
+.contact-box {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-box form {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-box input {
+    padding: 12px;
+    width: 220px;
+}
+
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 18px;
+}
+
+/* BUG: no mobile fixes provided */
