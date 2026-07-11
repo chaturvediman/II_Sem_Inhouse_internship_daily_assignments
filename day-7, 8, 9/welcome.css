@@ -1,0 +1,47 @@
+/* General Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Content Container */
+.container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+/* Paragraphs */
+p {
+    background: #f4f4f4;
+    padding: 12px;
+    margin: 10px 0;
+    border-left: 5px solid #3498db;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #333;
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+p:hover {
+    background: #3498db;
+    color: white;
+    transform: scale(1.03);
+}
